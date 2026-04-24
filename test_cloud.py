@@ -13,16 +13,16 @@ print(f"Czy plik widzi env:: {os.path.exists(sciezka_env)}")
 
 load_dotenv(dotenv_path=sciezka_env)
 
-WRITE_API_KEY = os.getenv('THINGSPEAK_API_KEY')
+API_KEY = os.getenv('API_KEY')
 URL = 'https://api.thingspeak.com/update'
 
 def test():
-    if not WRITE_API_KEY:
+    if not API_KEY:
         print("BŁĄD: Brak klucza API w pliku .env!")
         return
 
     test_data = {
-        'api_key': WRITE_API_KEY,
+        'api_key': API_KEY,
         'field1': round(random.uniform(10, 100), 2), # Symulacja UVA
         'field2': round(random.uniform(5, 50), 2),   # Symulacja UVB
         'field3': 64,                                # Symulacja czasu (ms)
