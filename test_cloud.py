@@ -5,16 +5,16 @@ import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-WRITE_API_KEY = os.getenv('THINGSPEAK_API_KEY')
+API_KEY = os.getenv('THINGSPEAK_API_KEY')
 URL = 'https://api.thingspeak.com/update'
 
 def testowe_wysylanie():
-    if not WRITE_API_KEY:
+    if not API_KEY:
         print("BŁĄD: Brak klucza API w pliku .env!")
         return
 
     dane_testowe = {
-        'api_key': WRITE_API_KEY,
+        'api_key': API_KEY,
         'uva_raw': round(random.uniform(10, 100), 2),
         'uvb_raw': round(random.uniform(5, 50), 2),
         'time_ms': 64,                          
